@@ -15,21 +15,13 @@ class Home extends Component {
     //Set facingMode to "environment" for rear camera and "user" for front camera
     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false })
       .then((stream) => {
-        /* use the stream */
-        console.log(stream);
-        //var video = document.querySelector('video');
-        //this.state.videoStream = stream;
-        //this.state.videoStream.onloadedmetadata = function(e) {
-        //  this.state.videoStream.play();
-        //};
-
         this.setState({
           videoStream: stream
         });
         this.mainVideo.current.srcObject = this.state.videoStream;
       })
-      .catch(function (err) {
-        /* handle the error */
+      .catch((err) => {
+        console.error(err);
       });
   }
 
