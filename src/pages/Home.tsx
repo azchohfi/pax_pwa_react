@@ -1,22 +1,28 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
-class Home extends Component {
+class Home extends React.Component {
+
+  private mainVideo = React.createRef<HTMLVideoElement>();
+
   constructor(props) {
     super(props);
     this.state = {
       videoStream: null
     }
-    this.mainVideo = React.createRef();
   }
 
   componentDidMount() {
-    console.log("ComponentDidMount");
     navigator.mediaDevices.getUserMedia({ video: true, audio: false })
       .then((stream) => {
         this.setState({
           videoStream: stream
         });
-        this.mainVideo.current.srcObject = this.state.videoStream;
+
+        const correctVideoElement = this.mainVideo.current!;
+
+        if (this.mainVideo) {
+          correctVideoElement.srcObject = (this.state as any).videoStream;
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -26,7 +32,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <video autoPlay ref={this.mainVideo}></video>
+        <video autoPlay={true} ref={this.mainVideo} />
       </div>
     );
   }
