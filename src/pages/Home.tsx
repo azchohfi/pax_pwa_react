@@ -2,8 +2,8 @@ import * as React from 'react';
 import '../styles/Home.css';
 
 class Home extends React.Component {
-
   private mainVideo = React.createRef<HTMLVideoElement>();
+  private mainCanvas = React.createRef<HTMLCanvasElement>();
 
   constructor(props) {
     super(props);
@@ -51,11 +51,39 @@ class Home extends React.Component {
     });
   }
 
+  processFrame() {
+    if(!this.mainCanvas.current)
+      return;
+
+    var context = this.mainCanvas.current.getContext('2d');
+    if (this.mainVideo.current && context) {
+      var width = this.mainVideo.current.width;
+      var height = this.mainVideo.current.height;
+      this.mainCanvas.current.width = width;
+      this.mainCanvas.current.height = height;
+      context.drawImage(this.mainVideo.current, 0, 0, width, height);
+    
+      let img = new Image();
+      img.src = this.mainCanvas.current.toDataURL('image/png').replace('image/png', 'image/octet-stream');
+
+      //@ts-ignore
+      if(window.Windows && Windows.UI.Popups)//Windows.AI.MachineLearning)
+      {
+        //@ts-ignore
+        let x = new Windows.UI.Popups.MessageDialog('Test')
+        x.showAsync();
+        //Windows.AI.MachineLearning.
+      }
+    }
+  }
+
   render() {
     return (
       <div className="Home">
         <video autoPlay={true} ref={this.mainVideo} className="Home-Video"></video>
+        <canvas ref={this.mainCanvas}/>
         <button onClick={() => this.handleCameraToggle()}>Toggle</button>
+        <button onClick={() => this.processFrame()}>Process frame</button>
       </div>
     );
   }
