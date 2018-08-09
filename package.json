@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "react-scripts-ts start",
-    "copy-manifest": "copyfiles web.config build/web.config",
+    "copy-manifest": "copyfiles web.config build",
     "build": "react-scripts-ts build && npm run copy-manifest",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
