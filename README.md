@@ -10,7 +10,7 @@ http://pax-pwa-react.azurewebsites.net/
 
 ## Todo
 
-* Add typescript (Justin)
+* ~~Add typescript (Justin)~~
 * ~~Deploy to Azure (Alex/Rumsha/Justin)~~
     * ~~Add CI~~
     * ~~Add CD~~
@@ -19,7 +19,7 @@ http://pax-pwa-react.azurewebsites.net/
 * Add support for TensorFlow.JS (Justin)
 * ~~Set up repo (Rumsha/Justin)~~
 * ~~Add react router (Alex/Rumsha/Justin)~~
-* Add access to ther Camera and draw to a canvas (Rumsha)
+* ~~Add access to ther Camera and draw to a canvas (Rumsha/Justin)~~
 * Call Bing Search or equivalent JSON API (Rumsha)
 * Use PWA Builder (Alex)
 * Do something on serverside
