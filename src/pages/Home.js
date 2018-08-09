@@ -13,21 +13,13 @@ class Home extends Component {
     console.log("ComponentDidMount");
     navigator.mediaDevices.getUserMedia({ video: true, audio: false })
       .then((stream) => {
-        /* use the stream */
-        console.log(stream);
-        //var video = document.querySelector('video');
-        //this.state.videoStream = stream;
-        //this.state.videoStream.onloadedmetadata = function(e) {
-        //  this.state.videoStream.play();
-        //};
-
         this.setState({
           videoStream: stream
         });
         this.mainVideo.current.srcObject = this.state.videoStream;
       })
-      .catch(function (err) {
-        /* handle the error */
+      .catch((err) => {
+        console.error(err);
       });
   }
 
