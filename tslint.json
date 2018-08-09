@@ -3,7 +3,8 @@
     "tslint-react"
   ],
   "rules": {
-    "jsx-self-close": false
+    "jsx-self-close": false,
+    "jsx-no-lambda": false
   },
   "linterOptions": {
     "exclude": [
