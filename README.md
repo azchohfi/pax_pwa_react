@@ -10,7 +10,7 @@ http://pax-pwa-react.azurewebsites.net/
 
 ## Todo
 
-* Add typescript (Justin)
+* ~~Add typescript (Justin)~~
 * ~~Deploy to Azure (Alex/Rumsha/Justin)~~
     * ~~Add CI~~
     * ~~Add CD~~
