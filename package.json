@@ -22,12 +22,6 @@
     "@types/react-dom": "^16.0.7",
     "@types/react-router-dom": "^4.3.0",
     "typescript": "^3.0.1",
-    "copy-manifest": "copyfiles web.config build",
-    "build": "react-scripts build && npm run copy-manifest",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {
     "copyfiles": "^2.0.0"
   }
 }
