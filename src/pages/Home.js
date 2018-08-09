@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/Home.css';
 
 class Home extends Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class Home extends Component {
 
   componentDidMount() {
     console.log("ComponentDidMount");
-    navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+    //Set facingMode to "environment" for rear camera and "user" for front camera
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false })
       .then((stream) => {
         /* use the stream */
         console.log(stream);
@@ -33,8 +35,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <video autoPlay ref={this.mainVideo}></video>
+      <div className="Home">
+        <video autoPlay ref={this.mainVideo} className="Home-Video" ></video>
+        <button>Front</button><button>Rear</button>
       </div>
     );
   }
